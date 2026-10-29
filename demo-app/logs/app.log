@@ -1,0 +1,7 @@
+2026-10-28T09:14:02.118Z INFO checkout service listening on 3000
+2026-10-28T09:15:41.502Z INFO POST /checkout 200 total=45
+2026-10-28T09:16:07.889Z INFO POST /checkout 200 total=25
+2026-10-28T09:21:33.014Z ERROR POST /checkout 500 TypeError: Cannot read properties of undefined (reading 'trim') | at discountRate (demo-app/checkout.js:13:23) | at total (demo-app/checkout.js:18:41) | at IncomingMessage.<anonymous> (demo-app/server.js:32:22)
+2026-10-28T09:21:58.430Z ERROR POST /checkout 500 TypeError: Cannot read properties of undefined (reading 'trim') | at discountRate (demo-app/checkout.js:13:23) | at total (demo-app/checkout.js:18:41) | at IncomingMessage.<anonymous> (demo-app/server.js:32:22)
+2026-10-28T09:22:15.007Z INFO POST /checkout 200 total=90
+2026-10-28T09:24:49.761Z ERROR POST /checkout 500 TypeError: Cannot read properties of undefined (reading 'trim') | at discountRate (demo-app/checkout.js:13:23) | at total (demo-app/checkout.js:18:41) | at IncomingMessage.<anonymous> (demo-app/server.js:32:22)
