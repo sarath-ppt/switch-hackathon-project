@@ -10,6 +10,7 @@ function subtotal(items) {
 }
 
 function discountRate(coupon) {
+  if (typeof coupon !== "string") return 0;
   const code = coupon.trim().toUpperCase();
   return COUPONS[code] || 0;
 }
