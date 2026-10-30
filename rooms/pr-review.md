@@ -37,6 +37,7 @@ Conventions:
 - Each reviewer writes to `reviews/pr-<number>-<role>.md`; the verdict goes in `reviews/pr-<number>-verdict.md`.
 - Use `gh pr view` and `gh pr diff` to read PRs.
 - Only a human merges.
+- Agents here do not commit. Do not end messages with a suggested commit message or ask for a ticket number.
 
 Agents in this room should not:
 - Edit code, push, approve on GitHub, or merge.

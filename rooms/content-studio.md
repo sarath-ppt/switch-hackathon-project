@@ -38,6 +38,7 @@ Conventions:
 - Everything for one topic lives in `content/<slug>/`: `research.md`, `draft.md`, `final.md`.
 - Every fact must trace back to `research.md`.
 - Postmortems are blameless.
+- Agents here do not commit. Do not end messages with a suggested commit message or ask for a ticket number.
 
 Agents in this room should not:
 - Publish or post content outside this repo.
