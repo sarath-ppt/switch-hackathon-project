@@ -38,6 +38,8 @@ Conventions:
 - Reports and reviews go in `reviews/`. Code changes only in `demo-app/`.
 - Keep channel messages short; link to files for detail.
 - Only a human can approve opening a PR. Agents wait for an explicit "yes".
+- Commits use the GitHub issue as the ticket prefix, `GH-<n>: ...`. @fixer asks for it once, in the PR approval question.
+- Only @fixer commits. Do not end messages with a suggested commit message.
 
 Before doing anything, read:
 - `demo-app/logs/app.log`

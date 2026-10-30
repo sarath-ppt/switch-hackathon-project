@@ -85,10 +85,11 @@ Three Switch rooms, each a Mattermost channel. Each one's output feeds the next.
 |---|---|
 | `agents/` | One folder per agent; `AGENT.md` is pasted into Switch Console's **Agent instructions** |
 | `rooms/` | One file per room; its Instructions section is pasted into the room's **Instructions** field |
-| `demo-app/` | Small checkout service with a planted bug, its logs and tests |
+| `demo-app/` | Small checkout service, its logs and tests (`node tools/reset-demo.js` plants the coupon bug) |
 | `reviews/` | Triage reports, PR reviews and verdicts written by agents |
 | `content/` | Research, drafts and final posts written by agents |
-| `tools/` | Scripts / MCP servers the agents call |
+| `docs/example-run/` | Everything the agents wrote in a full run: [issue #1](https://github.com/sarath-ppt/switch-hackathon-project/issues/1), [PR #2](https://github.com/sarath-ppt/switch-hackathon-project/pull/2) and the postmortem |
+| `tools/` | `reset-demo.js` puts the demo back in its starting state |
 | `docs/setup.md` | Full setup to reproduce the demo |
 
 ## Setup

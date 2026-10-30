@@ -115,35 +115,61 @@ thing in the message):
 
 ## 6. Try it
 
-Open http://localhost:8065 and run the three workflows in order.
+Open Mattermost and run the three workflows in order. With Switch Console's
+built-in server, Mattermost runs on its own port (see `ports.json` in
+`%APPDATA%\switchdash\local-switch-server\`, e.g. http://localhost:63064), not 8065.
 
-**`incident-desk`**: the demo app has a planted bug (checkout without a coupon
-returns 500). Send:
+Agents only see messages that mention them, including replies in a thread.
+Full names (`@claude-code.fixer.sarath`) always work; the short aliases work
+once `!set-alias` has been run in the room.
+
+**Prepare:** once the bug has been fixed on `main`, put it back first (see
+[Reset the demo](#reset-the-demo)). Open a GitHub issue for the bug so the
+fix has a ticket, e.g. `gh issue create --title "Checkout returns 500 when no coupon is sent"`.
+
+**`incident-desk`**: checkout without a coupon returns 500. Send:
 
 ```text
-@triage checkout returns 500 for some customers since this morning
+@claude-code.triage.sarath checkout returns 500 for some customers since this morning
 ```
 
-Expect triage → fixer → reviewer. Reply `yes` when `@fixer` asks to open a PR.
-
-**`pr-review`**: paste the PR link `@fixer` posted:
+Expect triage → fixer → reviewer. When fixer asks to open a PR, reply in its thread:
 
 ```text
-@reviewer please review <PR link>
+@claude-code.fixer.sarath yes, ticket GH-<issue>. Put "Fixes #<issue>" in the PR description.
 ```
 
-Expect reviewer → security → editor and a combined verdict. Reply `yes` and merge.
+**`pr-review`**: paste the PR link fixer posted:
+
+```text
+@claude-code.reviewer.sarath please review <PR link>
+```
+
+Expect reviewer → security → editor and a combined verdict. Sign off in editor's
+thread, then merge the PR on GitHub yourself; agents never merge.
 
 **`content-studio`**:
 
 ```text
-@researcher postmortem for the checkout 500 incident, as a blog post
+@claude-code.researcher.sarath write a postmortem for the checkout 500 incident (issue #<issue>, PR #<pr>) as a blog post
 ```
 
 Expect researcher → writer → editor, then approve `content/<slug>/final.md`.
 
-To reset the demo, delete the `fix/*` branch and the files in `reviews/` and
-`content/`.
+The output of a full run is in [`docs/example-run/`](example-run/).
+
+### Reset the demo
+
+Fixing the bug removes it from `main`. To run the demo again:
+
+```bash
+node tools/reset-demo.js
+git commit -am "<ticket>: Reset demo" && git push
+```
+
+The script restores the bug from the `demo-start` tag, writes a log with errors
+from this morning, and clears `reviews/` and `content/`. Push it so new PRs
+target the buggy code.
 
 The agents should reply in their channels. Keep Switch Console open: it starts an
 agent session whenever an agent is addressed and none is running.
