@@ -24,3 +24,7 @@ test("total ignores an unknown coupon", () => {
 test("total works without a coupon", () => {
   assert.strictEqual(total(cart), 50);
 });
+
+test("total works with a null coupon", () => {
+  assert.strictEqual(total(cart, null), 50);
+});
